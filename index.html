@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Atmo Cards</title>
+        <script type='text/javascript' src='https://unpkg.com/webcam-easy@1.0.5/dist/webcam-easy.min.js'></script>  
+    </head>
+
+    <body>
+        <!-- Titelbild -->
+        <img src="Title.png" alt="Atmo Cards">
+
+        <!-- "Container" für das Video-Element -->
+        <div if="container">
+            <video id='VideoElement' autoplay playsinline width="960" height="540">
+
+            </video>
+        </div>
+        <br>
+
+        <!-- Startbutton -->
+        <button id="startButton">Start</button>
+
+        <!-- Button für Anleitung/Liste der vorhandenen Samples -->
+        <button id="myBtn">Hilfe</button>
+        <button id='webcam_button'>Webcam On</button>
+
+
+        
+
+        <div id='gainContainer'> Lautstärke
+            <input type='range' min='0' max='100' value='100' class='slider' id='gainSlider'>
+        </div>
+
+        <div id='reverbContainer'>
+            <button id='hall_button'>Reverb Off</button>
+        <select id='select_reverb'>
+            <option value='room'>Raum</option>
+            <option value='church'>Kirche</option>
+            <option value='cave'>Höhle</option>
+            <option value='garage'>Garage</option>
+        </select>
+        </div>
+        
+        
+
+        
+        <!-- Modal das durch den Hilfe-Button aufgerufen wird -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <!-- 2 Spalten: eine für die Anleitung, die andere für -->        
+                <div class="row"> 
+                    <div class="column">
+                        <h2>Anleitung</h2>
+                        <p>
+                            Herzlich Wilkommen bei Atmo Cards! <br>
+                            Stelle dir deine induviduelle Soundlandschaft zusammen <br>
+
+                            Viel Spaß <br>
+                        </p>
+                    </div>
+
+                    <div class="column">
+                        <h2>Diese Sounds stehen dir zur Verfügung:</h2>
+                        <p> 
+                            blaue Karten: <br>
+                            Meeresrauschen<br>
+                            Möwen<br>
+                            Winter<br>
+                            
+                            rote Karten: <br>
+                            Klavier<br>
+                            Eulen<br>
+                            Café<br>
+
+                            grüne Karten: <br>
+                            Gitarre<br>
+                            Flugzeug<br>
+                            Gewitter<br>
+                        </p>
+
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+        
+        <!-- Skripte für das Modal -->
+        <script>
+            var modal = document.getElementById("myModal");
+            var btn = document.getElementById("myBtn");
+            var span = document.getElementsByClassName("close")[0];
+            
+            // ButtonKlick: Modal öffnen
+            btn.onclick = function() {
+              modal.style.display = "block";
+            }
+            
+            // "Span"Klick (x): Modal schließen
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            
+            // Klick neben das Modal: Modal schließen
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+        </script>       
+        
+        
+
+        <!-- Skripte für das Programm -->
+        <script src='audio.js'></script>
+        <script src='midi.js'></script>
+
+    </body>
+
+</html>
